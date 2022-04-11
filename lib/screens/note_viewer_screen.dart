@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notes/provider/db_provider.dart';
+import 'package:provider/provider.dart';
 
 class NoteViewer extends StatelessWidget {
   const NoteViewer({Key? key}) : super(key: key);
@@ -32,7 +34,21 @@ class NoteViewer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-          )
+          ),
+          InkWell(
+            onTap: () {
+              Provider.of<DBProvider>(context, listen: false)
+                  .deleteItem(item["id"]);
+              Navigator.pop(context);
+            },
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              child: const Icon(
+                Icons.delete,
+                color: Colors.black,
+              ),
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(

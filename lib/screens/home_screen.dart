@@ -38,16 +38,16 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 25),
                 ),
                 actions: [
-                  Center(
-                    child: InkWell(
-                      child: Container(
-                          margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                          child: const Icon(
-                            Icons.settings,
-                            color: Colors.black,
-                          )),
-                    ),
-                  )
+                  // Center(
+                  //   child: InkWell(
+                  //     child: Container(
+                  //         margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                  //         child: const Icon(
+                  //           Icons.settings,
+                  //           color: Colors.black,
+                  //         )),
+                  //   ),
+                  // )
                 ],
               ),
               body: ListView.builder(
