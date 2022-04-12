@@ -11,16 +11,9 @@ class NoteViewer extends StatelessWidget {
     // print(item['title']);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Colors.black, // <= You can change your color here.
-        ),
         title: Text(item['title'],
-            style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25)),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
         actions: [
           InkWell(
             onTap: () {
@@ -31,7 +24,6 @@ class NoteViewer extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: const Icon(
                 Icons.edit,
-                color: Colors.black,
               ),
             ),
           ),
@@ -45,7 +37,6 @@ class NoteViewer extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: const Icon(
                 Icons.delete,
-                color: Colors.black,
               ),
             ),
           ),

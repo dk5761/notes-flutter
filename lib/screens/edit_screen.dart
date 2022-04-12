@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/provider/db_provider.dart';
+import 'package:notes/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../models/note.dart';
@@ -56,16 +57,9 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Colors.black, // <= You can change your color here.
-        ),
         title: Text(appBarTitle,
-            style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25)),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
         actions: [
           InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(100)),
@@ -77,7 +71,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: const Center(
-                  child: Icon(Icons.check_rounded, color: Colors.black),
+                  child: Icon(Icons.check_rounded),
                 )),
             onTap: () {
               if (titleController.text.toString() != "") {
@@ -102,34 +96,70 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Column(children: [
           TextField(
+            cursorColor: Theme.of(context)
+                .inputDecorationTheme
+                .labelStyle
+                ?.decorationColor,
             controller: titleController,
             maxLines: 1,
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black),
-                ),
-                labelText: 'Title',
-                labelStyle: TextStyle(color: Colors.black)),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Theme.of(context)
+                          .inputDecorationTheme
+                          .border
+                          ?.borderSide
+                          .color as Color)),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context)
+                        .inputDecorationTheme
+                        .labelStyle
+                        ?.decorationColor as Color),
+              ),
+              labelText: 'Title',
+              labelStyle: TextStyle(
+                  color: Theme.of(context)
+                      .inputDecorationTheme
+                      .labelStyle
+                      ?.decorationColor),
+            ),
           ),
           const SizedBox(
             height: 12,
           ),
           Expanded(
             child: TextField(
+              cursorColor: Theme.of(context)
+                  .inputDecorationTheme
+                  .labelStyle
+                  ?.decorationColor,
               keyboardType: TextInputType.multiline,
               maxLines: null,
               minLines: 1,
               controller: bodyController,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  labelText: 'Content',
-                  labelStyle: TextStyle(color: Colors.black)),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Theme.of(context)
+                            .inputDecorationTheme
+                            .border
+                            ?.borderSide
+                            .color as Color)),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Theme.of(context)
+                          .inputDecorationTheme
+                          .labelStyle
+                          ?.decorationColor as Color),
+                ),
+                labelText: 'Content',
+                labelStyle: TextStyle(
+                    color: Theme.of(context)
+                        .inputDecorationTheme
+                        .labelStyle
+                        ?.decorationColor),
+              ),
             ),
           )
         ]),
