@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/provider/db_provider.dart';
 import 'package:notes/provider/theme_provider.dart';
-import 'package:notes/resources/themes.dart';
 import 'package:notes/screens/edit_screen.dart';
 import 'package:notes/screens/home_screen.dart';
 import 'package:notes/screens/note_viewer_screen.dart';

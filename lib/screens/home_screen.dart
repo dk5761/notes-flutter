@@ -47,8 +47,16 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Container(
                       padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
-                      child: NoteTile(
-                        item: items[index],
+                      child: Dismissible(
+                        onDismissed: (direction) {
+                          Provider.of<DBProvider>(context, listen: false)
+                              .deleteItem(items[index].id);
+                        },
+                        key: Key(items[index].id),
+                        child: NoteTile(
+                          key: Key(items[index].id),
+                          item: items[index],
+                        ),
                       ));
                 },
                 itemCount: items.length,

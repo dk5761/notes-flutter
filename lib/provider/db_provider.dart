@@ -55,6 +55,7 @@ class DBProvider extends ChangeNotifier {
   Future deleteItem(String id) async {
     _items.removeWhere((element) => element.id == id);
     notifyListeners();
+    print("deleted");
     return DBHelper.delete(id);
   }
 
